@@ -1,4 +1,12 @@
+use chrono::{DateTime, Utc};
 use clap::{command, Parser};
+
+struct Transaction {
+    amount: f32,
+    category: String,
+    date: DateTime<Utc>,
+    description: String,
+}
 
 #[derive(Parser, Debug)]
 #[command(version, about, long_about = None)]
