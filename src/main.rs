@@ -15,13 +15,24 @@ struct Args {
     #[arg(short, long, default_value_t = 0.0)]
     amount: f32,
 
-    /// Amounts of expense - value greater than 0.0
-    #[arg(short = 'z', long, default_value_t = 0.0)]
-    amounts: f32,
+    /// Type of expense
+    #[arg(short = 't', long = "type", default_value_t = String::from("expense"))]
+    expense_type: String,
+
+    /// Date of expense - format 2024/11/13
+    #[arg(long)]
+    date: Option<String>,
+
+    /// Description of expense
+    #[arg(long)]
+    description: Option<String>,
 }
 
 fn main() {
     let args = Args::parse();
 
     println!("Hello {:?}!", args.amount);
+    println!("Hello {:?}", args.expense_type);
+    println!("Hello {:?}", args.description);
+    println!("Hello {:?}", args.date);
 }
